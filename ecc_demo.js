@@ -1,6 +1,7 @@
 
 //import ecc from 'eosjs-ecc'
-const ecc = require('eosjs-ecc')
+//const ecc = require('eosjs-ecc')
+const ecc = require('./ecc/api_common.js')
 
 console.log("ecc demo");
 
