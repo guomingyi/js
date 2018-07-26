@@ -1,6 +1,7 @@
-
+// add module.
 var hello = require('./hello'); 
-var server = require('./server'); // add external module require.
+var server = require('./server'); 
+var event = require('./event');
 
 function buffer_test() {
 	const buf = Buffer.from('abcd', 'ascii');
@@ -10,11 +11,14 @@ function buffer_test() {
 }
 
 
+// call external function.
 hello.hello()
 
 buffer_test()
 
-server.http_server() // call external function.
+event.emit_event()
+
+server.http_server() 
 
 
 
