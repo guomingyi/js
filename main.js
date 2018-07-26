@@ -3,6 +3,7 @@ var hello = require('./hello');
 var server = require('./server'); 
 var event = require('./event');
 var async = require('./async');
+var router = require("./router");
 
 function buffer_test() {
 	const buf = Buffer.from('abcd', 'ascii');
@@ -21,10 +22,7 @@ event.emit_event()
 
 async.async_read()
 
-server.http_server() 
-
-
-
+server.start(router.route) 
 
 
 
