@@ -2,6 +2,7 @@
 var hello = require('./hello'); 
 var server = require('./server'); 
 var event = require('./event');
+var async = require('./async');
 
 function buffer_test() {
 	const buf = Buffer.from('abcd', 'ascii');
@@ -17,6 +18,8 @@ hello.hello()
 buffer_test()
 
 event.emit_event()
+
+async.async_read()
 
 server.http_server() 
 
