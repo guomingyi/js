@@ -1,6 +1,6 @@
 var http = require('http');
 var url = require("url");
-
+var util = require('util');
  
 function start(route) {
   function onRequest(request, response) {
@@ -9,7 +9,14 @@ function start(route) {
     route(pathname);
     response.writeHead(200, {"Content-Type": "text/plain"});
     response.write("Hello World\n");
-    response.end();
+
+    // 解析 url 参数
+    var params = url.parse(request.url, true).query;
+    response.write("网站名：" + params.name);
+    response.write("\n");
+    response.write("网站 URL：" + params.url);
+    response.write(util.inspect(url.parse(request.url,true)));
+    response.end()
   }
  
   http.createServer(onRequest).listen(8888);
