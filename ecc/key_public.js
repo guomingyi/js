@@ -46,7 +46,8 @@ function PublicKey(Q) {
 
     /** @todo rename to toStringLegacy */
     function toString() {
-      return 'EOS' + keyUtils.checkEncode(toBuffer())
+      //return 'EOS' + keyUtils.checkEncode(toBuffer())
+        return keyUtils.checkEncode(toBuffer())
     }
 
     function toUncompressed() {

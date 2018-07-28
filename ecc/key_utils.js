@@ -210,7 +210,7 @@ function checkDecode(keyString, keyType = null) {
     } else {
       const check = [key]
       if(keyType) {
-          check.push(Buffer.from(keyType))
+          check.push(Buffer.from('K1'))
       }
       newCheck = hash.ripemd160(Buffer.concat(check)).slice(0, 4) //PVT
     }

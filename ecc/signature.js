@@ -130,7 +130,7 @@ function Signature(r, s, i) {
       if(signatureCache) {
           return signatureCache
       }
-      signatureCache = 'SIG_K1_' + keyUtils.checkEncode(toBuffer(), 'K1')
+      signatureCache = 'SIG_SECP256K1_' + keyUtils.checkEncode(toBuffer(), 'K1')
       return signatureCache
     }
 
@@ -261,7 +261,7 @@ Signature.fromStringOrThrow = function(signature) {
     const match = signature.match(/^SIG_([A-Za-z0-9]+)_([A-Za-z0-9]+)$/)
     assert(match != null && match.length === 3, 'Expecting signature like: SIG_K1_base58signature..')
     const [, keyType, keyString] = match
-    assert.equal(keyType, 'K1', 'K1 signature expected')
+    assert.equal(keyType, 'SECP256K1', 'SECP256K1 signature expected')
     return Signature.fromBuffer(keyUtils.checkDecode(keyString, keyType))
 }
 
